@@ -1,0 +1,64 @@
+.toolbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #b6000b;
+    height: 50px;
+}
+.toolbar_nav{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 1rem;
+}
+.toolbar_logo {
+   display: flex;
+}
+.toolbar_logo img{
+    
+    width: 30px;
+    height: 30px;
+    padding: 0 1rem
+}
+.toolbar_logo a{
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+.seperator{
+    flex:1
+}
+
+.hamburgerButton{
+    display: initial;
+}
+
+@media only screen and (min-width: 768px) {
+    .toolbar_options {
+        display: initial !important;
+    }
+    .hamburgerButton{
+        display: none
+    }
+}
+.toolbar_options {
+    display: none;
+}
+.toolbar_options ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex
+}
+.toolbar_options li{
+    padding: 0 0.5rem
+}
+.toolbar_options a{
+    color: white;
+    text-decoration: none;
+}
+.toolbar_options a:hover,
+.toolbar_options a:active{
+    color: pink;
+}
