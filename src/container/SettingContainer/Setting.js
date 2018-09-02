@@ -2,33 +2,42 @@
 import React, { Component } from "react";
 import SettingPage from "../../pages/SettingPage/SettingPage";
 import { connect } from 'react-redux';
-import {doUpdateSettings} from  './action.js';
+import { doUpdateSettings } from './action.js';
 
- class SettingContainer extends Component {
-	
-	constructor(props){
+class SettingContainer extends Component {
+
+	constructor(props) {
 		super(props);
-		const { companyName="",companyMotto="",companyEst=""}=this.props.companyInfo
-		this.state={
+		const { 
+			companyInfo:{
+				companyName = "Company Name", companyMotto = "Company Motto", companyEst = ""
+		 	} } = this.props;
+		this.state = {
 			companyName: companyName,
-    		companyMotto: companyMotto,
-    		companyEst: companyEst
+			companyMotto: companyMotto,
+			companyEst: companyEst
 		}
 	}
-	setCompanyInfo=()=>{
+
+	// dispatch company info setting action
+	setCompanyInfo = () => {
 		this.props.dispatch(doUpdateSettings(this.state));
 	}
-	onStateChange=(targetState,value)=>{
+
+	// satate lisfting function for state setting
+	onStateChange = (targetState, value) => {
 		this.setState({
-			[targetState]:value
+			[targetState]: value
 		});
 	}
-	isFormClean=()=>{
-		//console.log("okok",Object.values(this.state).filter(item=> item === "").length);
-		return (Object.values(this.state).filter(item=> item === "").length === 0)?true:false;
+
+	// to check if the form is clean and to enable submit button 
+	isFormClean = () => {
+		return (Object.values(this.state).filter(item => item === "").length === 0) ? true : false;
 	}
+	
 	render() {
-		console.log("state of redux",this.props.companyInfo.companyName);
+		console.log("state of redux", this.props.companyInfo.companyName);
 		return <SettingPage
 			companyName={this.state.companyName}
 			companyMotto={this.state.companyMotto}

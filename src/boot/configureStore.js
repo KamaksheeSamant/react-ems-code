@@ -1,3 +1,4 @@
+// configuring redux store
 
 //import devToolsEnhancer from "remote-redux-devtools";
 import { createStore } from "redux";

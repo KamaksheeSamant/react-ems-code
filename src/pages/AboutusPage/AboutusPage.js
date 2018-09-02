@@ -1,8 +1,9 @@
 import React from 'react';
 import './AboutusPage.css';
+import PropTypes from 'prop-types';
 
 const AboutusPage = (props) => {
-    const {companyName, companyMotto}=props.companyInfo;
+    const { companyInfo: { companyName="Company Name", companyMotto="Company Motto" } } = props;
     return (
         <div className="aboutus-container" >
             <h1 className="title">{companyName}</h1>
@@ -15,4 +16,13 @@ const AboutusPage = (props) => {
         </div>
     );
 }
+
+AboutusPage.propTypes = {
+    companyInfo: PropTypes.object.isRequired
+};
+
+AboutusPage.defaultProps = {
+    companyInfo: {}
+}
+
 export default AboutusPage;

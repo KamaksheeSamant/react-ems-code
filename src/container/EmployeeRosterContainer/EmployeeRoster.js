@@ -2,66 +2,56 @@
 import React, { Component } from "react";
 import EmployeeRosterPage from "../../pages/EmployeeRosterPage/EmployeeRosterPage";
 import { connect } from 'react-redux';
+import { updateFilterOption, updateFilteredEmpList } from './action';
 
 class EmployeeRosterContainer extends Component {
-	constructor(props) {
-		super(props);
+	constructor() {
+		super();
 		this.state = {
-			selected_filter_option: this.props.employeesInfo.selected_filter_option,
-			searchValue: "",
-			fileteredList: this.props.employeesInfo.emp_list
+			searchValue: ""
 		}
 	}
 
-	onFilterList=(searchValue,selected_filter_option)=>{
-		console.log("searchValue",searchValue,"selected_filter_op",selected_filter_option);
-		if(selected_filter_option === "age"){
-			return this.props.employeesInfo.emp_list.filter(item=>
-				{
+	// to get the filtered emp list
+	onFilterList = (searchValue, selected_filter_option) => {
+		switch (selected_filter_option) {
+			case "age":
+				return this.props.employeesInfo.emp_list.filter(item => {
 					let valueToCompare = item[selected_filter_option];
-					 return (valueToCompare.toString() === searchValue)
-				}
-			);
-		}
-		else
-		if(selected_filter_option === "dateJoined")
-		{
+					return (valueToCompare.toString() === searchValue)
+				});
+				break;
 
-		}
-		else
-		{
-			return this.props.employeesInfo.emp_list.filter(item=>
-			{
-				let valueToCompare = item[selected_filter_option];
-			 	return (valueToCompare.includes(searchValue.toLowerCase()))
-			});
+			case "dateJoined":
+				break;
+			default:
+				return this.props.employeesInfo.emp_list.filter(item => {
+					let valueToCompare = item[selected_filter_option].toLowerCase();
+					return (valueToCompare.includes(searchValue.toLowerCase()))
+				});
 		}
 	}
 	onStateChange = (targetState, value) => {
-		//console.log("target",targetState,value);
+		let FilterList;
 		if (targetState === "searchValue") {
-			let FilterList= this.onFilterList(value,this.state.selected_filter_option);
-			//console.log("IIII",FileList);
-			this.setState({
-				[targetState]: value,
-				fileteredList:(FilterList !== undefined)?FilterList:[]
-			});
+			FilterList = this.onFilterList(value, this.props.employeesInfo.selected_filter_option);
 		}
-		else {
-			let FilterList= this.onFilterList(this.state.searchValue,value);
-			this.setState({
-				[targetState]: value,
-				fileteredList:(FilterList !== undefined)?FilterList:[]
-			});
+		else if (targetState === "selected_filter_option") {
+			FilterList = this.onFilterList(this.state.searchValue, value);
+			this.props.dispatch(updateFilterOption(value));
 		}
+		this.setState({
+			[targetState]: value
+		});
+		this.props.dispatch(updateFilteredEmpList(FilterList));
 	}
 	render() {
 		return <EmployeeRosterPage
 			employeesInfo={this.props.employeesInfo}
-			selected_filter_option={this.state.selected_filter_option}
+			selected_filter_option={this.props.employeesInfo.selected_filter_option}
 			onChangeHandler={this.onStateChange}
 			searchValue={this.state.searchValue}
-			fileteredList={this.state.fileteredList} />;
+			fileteredList={this.props.employeesInfo.filtered_emp_list} />;
 	}
 }
 const mapStateToProps = state => ({

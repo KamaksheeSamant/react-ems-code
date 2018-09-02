@@ -14,13 +14,13 @@ export default function (state = initialState, action) {
         case ActionTypes.SET_FILTER_OPTION: {
             return {
                 ...state,
-                filter_option: action.payload
+                selected_filter_option: action.payload
             }
         }
         case ActionTypes.SET_FILTER_LIST: {
             return {
                 ...state,
-                filter_option: action.payload
+                filtered_emp_list: action.payload
             }
         }
         default: return state;

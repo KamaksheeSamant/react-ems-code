@@ -4,23 +4,29 @@ import PropTypes from 'prop-types';
 
 const dropDown = (props) => {
     const { onChangeHandler, targetState, value = "", dataArray } = props;
-    //console.log(dataArray);
+
     return (
-        <select value={value} onChange={(e)=>{
+        <select value={value} onChange={(e) => {
             onChangeHandler(targetState, e.target.value);
         }}>
-            {(dataArray.map(item=>{
+
+            {(dataArray.map(item => {
                 return <option key={item.value} value={item.value}>{item.label}</option>
             }))}
         </select>
     );
 }
 
-// employeeCard.propTypes = {
-// };
+dropDown.propTypes = {
+    onChangeHandler:PropTypes.func.isRequired,
+    targetState:PropTypes.string.isRequired,
+    value:PropTypes.string,
+    dataArray:PropTypes.arrayOf(PropTypes.object).isRequired
+};
 
-// employeeCard.defaultProps = {
-// }
+dropDown.defaultProps = {
+    value:""
+}
 
-export default dropDown;// linking to redux
+export default dropDown;
 

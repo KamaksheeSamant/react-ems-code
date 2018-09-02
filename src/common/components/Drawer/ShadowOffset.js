@@ -3,9 +3,10 @@ import './ShadowOffset.css';
 import PropTypes from 'prop-types';
 
 const shadowOffset =(props)=>{
-        return (
-            <div className="shadowOffset" onClick={props.closeDrawer} />
-        );
+    const {closeDrawer} = props;
+    return (
+        <div className="shadowOffset" onClick={closeDrawer} />
+    );
 }
 
 shadowOffset.propTypes = {

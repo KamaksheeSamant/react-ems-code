@@ -8,9 +8,8 @@ const initialState = {
 
 export default function (state = initialState, action) {
     switch (action.type) {
-        
+        //to update the company settings 
         case ActionTypes.UPDATE_SETTINGS: {
-            //console.log("i am inside reducer",action.payload);
             return {
                 ...state,
                 data: action.payload,
