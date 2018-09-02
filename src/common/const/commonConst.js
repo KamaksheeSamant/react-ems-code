@@ -14,7 +14,14 @@ export const initState = {
     }
   },
   "employees": {
-    "filter_option":"firstName",
+    "selected_filter_option":"firstName",
+    "filterOptions":[
+    { "label":"firstName", "value":"firstName"},
+    { "label":"lastName", "value":"lastName"},
+    { "label":"jobTitle", "value":"jobTitle"},
+    { "label":"age", "value":"age"},
+    { "label":"bio", "value":"bio"},
+    { "label":"dateJoined", "value":"dateJoined"}],
     "filtered_emp_list":[],
     "emp_list": [{
       "id": "495fca29-9d03-49ee-b59e-08936820c21f",

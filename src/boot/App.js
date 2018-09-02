@@ -6,7 +6,7 @@ import ShadowOffset from '../common/components/Drawer/ShadowOffset';
 import { BrowserRouter, Route } from 'react-router-dom'
 import Aboutus from '../container/AboutusContainer/Aboutus';
 import Setting from '../container/SettingContainer/Setting';
-
+import EmployeeRoster from '../container/EmployeeRosterContainer/EmployeeRoster';
 class App extends Component {
   constructor() {
     super();
@@ -42,9 +42,9 @@ class App extends Component {
 
         <BrowserRouter>
           <div>
-            <Route exact path="/" component={Setting} />
+            <Route exact path="/" component={EmployeeRoster} />
             <Route path="/SETTING" component={Setting} />
-            <Route path="/HOME" component={Setting} />
+            <Route path="/HOME" component={EmployeeRoster} />
             <Route path="/ABOUT_US" component={Aboutus} />
           </div>
         </BrowserRouter>

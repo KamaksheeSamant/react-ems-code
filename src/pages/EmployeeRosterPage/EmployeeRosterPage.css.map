@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,yBAAyB,CAAC;EACtB,UAAU,EAAE,IAAI;EAChB,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;EACtB,WAAW,EAAE,CAAC;EACd,SAAS,EAAE,KAAK;EAChB,WAAW,EAAE,IAAI;EACjB,YAAY,EAAE,IAAI;CAInB;;AAXH,AAQI,yBARqB,CAQrB,mBAAmB,CAAA;EACjB,cAAc,EAAE,GAAG;CACpB",
+    "sources": [
+        "EmployeeRosterPage.scss"
+    ],
+    "names": [],
+    "file": "EmployeeRosterPage.css"
+}

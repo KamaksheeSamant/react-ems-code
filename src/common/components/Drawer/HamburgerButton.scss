@@ -1,0 +1,15 @@
+.hamburger-button {
+    display: flex;
+    height: 30px;
+    width: 50px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    &:focus {
+      outline: none;
+    }
+    img {
+      height: 30px;
+      width: 30px;
+    }
+  }

@@ -1,16 +1,20 @@
-.hamburger-button{
-    display: flex;
-    height: 30px;
-    width: 50px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
+.hamburger-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 30px;
+  width: 50px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
 }
 
-.hamburger-button:focus{
-    outline: none;
+.hamburger-button:focus {
+  outline: none;
 }
-.hamburger-button img{
-    height: 30px;
-    width: 30px;
+
+.hamburger-button img {
+  height: 30px;
+  width: 30px;
 }
+/*# sourceMappingURL=HamburgerButton.css.map */
