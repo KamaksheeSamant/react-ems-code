@@ -4,6 +4,7 @@ import HamburgerButton from '../Drawer/HamburgerButton';
 import logo from "../../../assets/images/westpacLogo.png";
 import PropTypes from 'prop-types';
 import {navOptions} from '../../const/commonConst';
+import { connect } from 'react-redux';
 
 const toolbar =(props)=>{
     return(
@@ -14,7 +15,10 @@ const toolbar =(props)=>{
             </div>
             <div className="toolbar_logo">
                 <img src={logo} alt="Westpac Logo"/>
-                <a href="/">Westpac EMS</a>
+                <div style={{flexDdirection: 'column', lineHeight:0.3}}>
+                <a href="/">{props.companyInfo.companyName}</a>
+                <h3>{props.companyInfo.companyMotto}</h3>
+                </div>
             </div>
             <div className="seperator"> </div>
             <div className="toolbar_options">
@@ -22,7 +26,7 @@ const toolbar =(props)=>{
                     {
                         navOptions.map((item)=>{
                             return(
-                                <li key={item}><a href="/"> {item} </a></li>
+                                <li key={item}><a href={"/"+item}> {item.replace("_"," ")} </a></li>
                             );
                         })
                     }
@@ -42,4 +46,8 @@ toolbar.defaultProps={
         console.log("drawerToggler function is not passed");
     }
 }
-export default toolbar;
+const mapStateToProps = state => ({
+	companyInfo: state.companyInfo.data,
+});
+export default connect(mapStateToProps)(toolbar);// linking to redux
+

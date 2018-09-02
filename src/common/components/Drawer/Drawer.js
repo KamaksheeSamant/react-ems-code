@@ -9,7 +9,7 @@ const drawer = (props) => {
                 {
                     navOptions.map((item) => {
                         return (
-                            <li key={item}><a href="/"> {item} </a></li>
+                            <li key={item}><a href={"/"+item}> {item.replace("_"," ")} </a></li>
                         );
                     })
                 }

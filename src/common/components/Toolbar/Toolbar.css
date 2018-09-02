@@ -1,3 +1,12 @@
+@media only screen and (min-width: 768px) {
+    .toolbar_options {
+        display: initial !important;
+    }
+    .hamburgerButton{
+        display: none
+    }
+}
+
 .toolbar{
     position: fixed;
     top: 0;
@@ -14,9 +23,9 @@
 }
 .toolbar_logo {
    display: flex;
+   align-items: center
 }
 .toolbar_logo img{
-    
     width: 30px;
     height: 30px;
     padding: 0 1rem
@@ -26,6 +35,13 @@
     text-decoration: none;
     font-size: 1.5rem;
 }
+.toolbar_logo h3{
+    color: white;
+    font-size: 0.7rem;
+    margin: 0;
+    padding-top: 0.7rem
+}
+
 .seperator{
     flex:1
 }
@@ -34,14 +50,6 @@
     display: initial;
 }
 
-@media only screen and (min-width: 768px) {
-    .toolbar_options {
-        display: initial !important;
-    }
-    .hamburgerButton{
-        display: none
-    }
-}
 .toolbar_options {
     display: none;
 }

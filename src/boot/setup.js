@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import configureStore from "./configureStore";
 import App from './App';
 
-export default class SetUp extends React.Component {
+export default class SetUp extends Component {
 
   constructor() {
     super();

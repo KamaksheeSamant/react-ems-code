@@ -1,11 +1,11 @@
 
-import devToolsEnhancer from "remote-redux-devtools";
+//import devToolsEnhancer from "remote-redux-devtools";
 import { createStore } from "redux";
 import reducer from "../reducers";
+import {initState} from '../common/const/commonConst';
+//import { persistStore, autoRehydrate } from 'redux-persist'
 // IF YOU WANNA TO DEAL WITH ASYNC NETWORK CALLS --> 
 //import thunk from "redux-thunk"; 
-// AND PERSISTEN STORE -->
-//import { persistStore } from "redux-persist";
 
 
 export default function configureStore() {
@@ -19,7 +19,8 @@ export default function configureStore() {
   //   })
   // );
 
-  const store = createStore(reducer,devToolsEnhancer());
+  const store = createStore(reducer,initState);
+  //persistStore(store);
 
   return store;
 }
