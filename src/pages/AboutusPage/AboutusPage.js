@@ -2,6 +2,7 @@ import React from 'react';
 import './AboutusPage.css';
 import PropTypes from 'prop-types';
 
+
 const AboutusPage = (props) => {
     const { companyInfo: { companyName="Company Name", companyMotto="Company Motto" } } = props;
     return (

@@ -11,6 +11,7 @@ const SettingPage = (props) => {
             <h1 className="setting-title">Company Information Setting</h1>
             <form>
                 <InputField
+                    styleO={{ width: '100%' }}
                     placeholder="Company Name"
                     type="text"
                     value={companyName}
@@ -19,6 +20,7 @@ const SettingPage = (props) => {
                     targetState="companyName" />
 
                 <InputField
+                    styleO={{ width: '100%' }}
                     placeholder="Company Motto"
                     type="text"
                     value={companyMotto}
@@ -27,6 +29,7 @@ const SettingPage = (props) => {
                     targetState="companyMotto" />
 
                 <InputField
+                    styleO={{ width: '100%' }}
                     placeholder="Company Establishment Date"
                     type="text"
                     value={companyEst}

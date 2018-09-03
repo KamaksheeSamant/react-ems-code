@@ -1,3 +1,5 @@
+@import '../../styles/commonStyle.scss';
+
 @media only screen and (min-width: 768px) {
   .toolbar_options {
     display: initial !important;
@@ -12,7 +14,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  background: #b6000b;
+  background:$color-brand;
   height: 50px;
 }
 
@@ -39,23 +41,23 @@
     height: 30px;
     padding: 0 1rem;
   }
-  a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.5rem;
-  }
-  h3 {
-    color: white;
-    font-size: 0.7rem;
-    margin: 0;
-    padding-top: 0.7rem;
+  .tootlbar_title{
+    flex-direction: column;
+    a {
+      color: white;
+      text-decoration: none;
+      @include textFormat(1.5rem,white);
+    }
+    h3 {
+      color: white;
+      margin: 0;
+      @include textFormat(0.8rem,white);
+    }
   }
 }
 
 .seperator {
-  -webkit-box-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
+  @include seperator(); 
 }
 
 .hamburgerButton {
@@ -64,16 +66,19 @@
 
 .toolbar_options {
   display: none;
+  
   ul {
+    @include noPadMargin();
     list-style: none;
-    margin: 0;
-    padding: 0;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
   }
   li {
     padding: 0 0.5rem;
+    a{
+      @include textFormat(0.9rem,white);
+    }
   }
   a {
     color: white;

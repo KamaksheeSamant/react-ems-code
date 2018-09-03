@@ -1,0 +1,48 @@
+
+// Color codes
+$color-red: #FF0000;
+$color-green: #00ff00;
+$color-blue: #0000FF;
+$color-brand: #b6000b;
+$color-darkGray: #676262;
+$colo-lightGray: #f3eeee;
+//Mixins
+@mixin push--auto {
+    margin: { 
+        left: auto;
+        right: auto;
+    }
+}
+
+@mixin seperator
+{
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+
+@mixin textFormat($size:16px,$color:$color_darkGray,$weight:initial,$family:sans-serif){
+    font-family: sans-serif;
+    font-size: $size;
+    font-weight: $weight;
+    color: $color
+}
+
+@mixin noPadMargin(){
+    margin: 0;
+    padding: 0;
+}
+//inheritance
+%button{
+    @include textFormat(0.9rem,white);
+    background-color:$color-brand;
+    border: none;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px 0;
+    min-width: 150px;
+}

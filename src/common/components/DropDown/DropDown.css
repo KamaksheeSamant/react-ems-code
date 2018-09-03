@@ -1,4 +1,39 @@
-.ok {
-  width: 0%;
+.dropDown-container {
+  width: 100%;
+  float: left;
+}
+
+.dropDown-container select {
+  font-family: sans-serif;
+  font-size: 0.9rem;
+  font-weight: initial;
+  color: #676262;
+  width: 90%;
+  background-color: #f1f1f1;
+  border: none;
+  color: black;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 10px 30px 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 2px 10px;
+  cursor: pointer;
+  min-width: 150px;
+  border: 2px solid black;
+  background: rgba(255, 255, 255, 0.1) url("../../../assets/icon/down.png") no-repeat right;
+  background-size: 20px 20px;
+}
+
+.dropDown-container h3 {
+  margin: 0;
+  padding: 0;
+  margin-left: 13px;
+  font-family: sans-serif;
+  font-size: 0.7rem;
+  font-weight: initial;
+  color: #676262;
 }
 /*# sourceMappingURL=DropDown.css.map */

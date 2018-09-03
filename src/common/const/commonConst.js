@@ -1,8 +1,8 @@
 
 export const navOptions = [
-  "HOME",
-  "SETTING",
-  "ABOUT_US"
+  "Home",
+  "Settings",
+  "About_us"
 ];
 
 export const initState = {
@@ -15,13 +15,18 @@ export const initState = {
   },
   "employees": {
     "selected_filter_option":"firstName",
+    "sortOptions":[
+    { "label":"Sort By", "value":"sortby", "disabled":"true"},
+    { "label":"Ascending", "value":"ascending"},
+    { "label":"Descending", "value":"descending"},
+    ],
     "filterOptions":[
-    { "label":"firstName", "value":"firstName"},
-    { "label":"lastName", "value":"lastName"},
-    { "label":"jobTitle", "value":"jobTitle"},
-    { "label":"age", "value":"age"},
-    { "label":"bio", "value":"bio"},
-    { "label":"dateJoined", "value":"dateJoined"}],
+    { "label":"First Name", "value":"firstName"},
+    { "label":"Last Name", "value":"lastName"},
+    { "label":"Job Title", "value":"jobTitle"},
+    { "label":"Age", "value":"age"},
+    { "label":"Bio Data", "value":"bio"},
+    { "label":"Date of Joining", "value":"dateJoined"}],
     "filtered_emp_list":[],
     "emp_list": [{
       "id": "495fca29-9d03-49ee-b59e-08936820c21f",

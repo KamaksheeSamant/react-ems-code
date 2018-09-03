@@ -1,3 +1,4 @@
+@import '../../common/styles/commonStyle';
 .aboutus-container {
     margin-top: 70px;
     display: flex;
@@ -9,10 +10,10 @@
     margin-left: auto;
     margin-right: auto;
     .title {
-      color: red;
-      font-size: 2rem;
+      @include textFormat(2rem);
     }
     .sub-title, p {
-      font-size: 1rem;
+      @include textFormat(0.9rem);
+      line-height: 1.2;
     }
   }

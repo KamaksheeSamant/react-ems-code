@@ -20,11 +20,17 @@
 }
 
 .aboutus-container .title {
-  color: red;
+  font-family: sans-serif;
   font-size: 2rem;
+  font-weight: initial;
+  color: #676262;
 }
 
 .aboutus-container .sub-title, .aboutus-container p {
-  font-size: 1rem;
+  font-family: sans-serif;
+  font-size: 0.9rem;
+  font-weight: initial;
+  color: #676262;
+  line-height: 1.2;
 }
 /*# sourceMappingURL=AboutusPage.css.map */

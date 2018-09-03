@@ -1,7 +1,18 @@
-@media only screen and (min-width: 768px) {
-  .setting-container {
-    border: 2px solid gray;
-  }
+.setting-container button {
+  font-family: sans-serif;
+  font-size: 0.9rem;
+  font-weight: initial;
+  color: white;
+  background-color: #b6000b;
+  border: none;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 5px 0;
+  min-width: 150px;
 }
 
 .setting-container {
@@ -20,14 +31,21 @@
       -ms-flex-direction: column;
           flex-direction: column;
   line-height: 1;
-  max-width: 768px;
+  max-width: 500px;
   margin-left: auto;
   margin-right: auto;
   padding: 0 10px;
 }
 
 .setting-container .setting-title {
-  color: red;
+  font-family: sans-serif;
   font-size: 2rem;
+  font-weight: initial;
+  color: #676262;
+}
+
+.setting-container button {
+  width: 100%;
+  margin-top: 20px;
 }
 /*# sourceMappingURL=SettingPage.css.map */

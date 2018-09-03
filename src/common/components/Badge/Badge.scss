@@ -1,0 +1,21 @@
+@import '../../styles/commonStyle.scss';
+
+.badge {
+  background-color: $color-brand;
+  border-radius: 0.3rem;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  width: auto;
+  float: left;
+  margin: 5px;
+  h3 {
+    color: white;
+    @include textFormat(0.9rem,white);
+    padding: 0;
+    margin: 0;
+    &:last-child {
+      margin-left: 10px;
+    }
+  }
+}

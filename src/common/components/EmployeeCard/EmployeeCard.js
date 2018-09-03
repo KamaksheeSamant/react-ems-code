@@ -10,14 +10,23 @@ const employeeCard = (props) => {
         jobTitle = "Job Title",
         age, bio = "Employee Bio data",
         dateJoined } } = props;
-        
+
     return (
-        <div className="card">
-            <img src={avatar} alt="Employee Avatar" style={{ width: '100%' }} />
-            <h1>{firstName + " " + lastName}</h1>
-            <p className="title">{jobTitle}</p>
-            <p><button>Contact</button></p>
-        </div>
+        <React.Fragment>
+            <div className="card">
+                <img src={avatar} alt="Employee Avatar" />
+                <h1>{firstName + " " + lastName}</h1>
+                <p className="title">{jobTitle}</p>
+                <p><button>VIEW</button></p>
+            </div>
+            <div className="list">
+                <li>
+                    <img src={avatar} alt="Employee Avatar" />
+                    <h3>{firstName + " " + lastName}</h3>
+                    <p className="title">{jobTitle}</p>
+                </li>
+            </div>
+        </React.Fragment>
     );
 }
 

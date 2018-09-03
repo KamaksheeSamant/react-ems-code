@@ -42,17 +42,29 @@
   padding: 0 1rem;
 }
 
-.toolbar_logo a {
-  color: white;
-  text-decoration: none;
-  font-size: 1.5rem;
+.toolbar_logo .tootlbar_title {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
-.toolbar_logo h3 {
+.toolbar_logo .tootlbar_title a {
   color: white;
-  font-size: 0.7rem;
+  text-decoration: none;
+  font-family: sans-serif;
+  font-size: 1.5rem;
+  font-weight: initial;
+  color: white;
+}
+
+.toolbar_logo .tootlbar_title h3 {
+  color: white;
   margin: 0;
-  padding-top: 0.7rem;
+  font-family: sans-serif;
+  font-size: 0.8rem;
+  font-weight: initial;
+  color: white;
 }
 
 .seperator {
@@ -70,9 +82,9 @@
 }
 
 .toolbar_options ul {
-  list-style: none;
   margin: 0;
   padding: 0;
+  list-style: none;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -80,6 +92,13 @@
 
 .toolbar_options li {
   padding: 0 0.5rem;
+}
+
+.toolbar_options li a {
+  font-family: sans-serif;
+  font-size: 0.9rem;
+  font-weight: initial;
+  color: white;
 }
 
 .toolbar_options a {

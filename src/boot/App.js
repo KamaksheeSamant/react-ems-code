@@ -59,7 +59,7 @@ class App extends Component {
             <BrowserRouter>
               <div>
                 <Route exact path="/" component={EmployeeRoster} />
-                <Route path="/SETTING" component={Setting} />
+                <Route path="/SETTINGS" component={Setting} />
                 <Route path="/HOME" component={EmployeeRoster} />
                 <Route path="/ABOUT_US" component={Aboutus} />
               </div>

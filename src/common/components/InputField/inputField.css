@@ -7,7 +7,8 @@
   font-size: 15px;
   width: 100%;
   border-radius: 3px;
-  margin: 10px;
+  margin: 10px 0;
+  width: auto;
 }
 
 .required {
