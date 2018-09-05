@@ -12,7 +12,7 @@ class Modal extends React.Component {
                 onClick={this.props.onClose}>
                 <div className="modal">
                     <div>
-                    {this.props.children}
+                        {this.props.children}
                     </div>
                     <button onClick={this.props.onClose}>Close</button>
                 </div>
@@ -25,7 +25,7 @@ class Modal extends React.Component {
 
 
 Modal.propTypes = {
-    children:PropTypes.any.isRequired
+    children: PropTypes.any.isRequired
 };
 
 export default Modal;

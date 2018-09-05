@@ -16,7 +16,7 @@ export const initState = {
   "employees": {
     "selected_filter_option":"firstName",
     "sortOptions":[
-    { "label":"Sort By", "value":"sortby", "disabled":"true"},
+    { "label":"Sort By", "value":"sortby", "disabled":true},
     { "label":"Ascending", "value":"ascending"},
     { "label":"Descending", "value":"descending"},
     ],

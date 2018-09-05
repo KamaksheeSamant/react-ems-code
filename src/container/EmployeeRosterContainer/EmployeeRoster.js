@@ -10,8 +10,6 @@ class EmployeeRosterContainer extends Component {
 		super();
 		this.state = {
 			searchValue: "",
-			toDate: new Date().toJSON().slice(0,10).split("-").reverse().join('/'),
-			fromDate: new Date().toJSON().slice(0,10).split("-").reverse().join('/'),
 			filterOn: false,
 			sortBy: null,
 			showEMPModal: false,
@@ -19,6 +17,7 @@ class EmployeeRosterContainer extends Component {
 			currentEmp:{}
 		}
 	}
+	// to set up currently clicked employee info into modal
 	onSetCurrentEmp=(currentEmp)=>{
 		this.setState({
 			currentEmp:currentEmp
@@ -26,44 +25,51 @@ class EmployeeRosterContainer extends Component {
 			this.onShowEMPModal();
 		});
 	}
+	// to show filter modal for mobile view
 	onShowFilterModal=()=>{
-		console.log("onShowModal");
 		window.scrollTo(0,0);
+		document.body.style.overflow='hidden';
 		this.setState({
 			showFilterModal: true
 		})
 	}
+	// to show emp detail modal
 	onShowEMPModal = () => {
-		console.log("onShowModal");
 		window.scrollTo(0,0);
+		document.body.style.overflow='hidden';
 		this.setState({
 			showEMPModal: true
 		})
 	}
+	// to close filter modal for mobile view
 	onCloseEMPModal = () => {
-		console.log("onCloseModal");
+		document.body.style.overflow='visible';
 		this.setState({
 			showEMPModal: false
 		});
 	}
+	// to close emp detail modal
 	onCloseFilterModal = () => {
-		console.log("onCloseModal");
+		document.body.style.overflow='visible';
 		this.setState({
 			showFilterModal: false
 		});
 	}
+	// to clear the filter
 	onClearFilter = (clearFilterBy=true) => {
 		this.setState({
-			filterOn: false,
-			searchValue: "",
-			sortBy: null
+			filterOn: false,// hide filter
+			searchValue: "", // clr search value
+			sortBy: null // clr sort by option
 		}, () => {
-			console.log("yeyy clr");
-			this.props.dispatch(updateFilteredEmpList([]));
+			this.props.dispatch(updateFilteredEmpList([])); // clear the filtered list
 			if(clearFilterBy)
-			this.props.dispatch(updateFilterOption("firstName"));
+			{
+				this.props.dispatch(updateFilterOption("firstName")); // reset the filter by option
+			}
 		});
 	}
+	// to toggle the filter
 	onFilterToggle = () => {
 		this.setState((prevState) => {
 			return {
@@ -75,7 +81,7 @@ class EmployeeRosterContainer extends Component {
 	onSortList = (ascending = true, emp_list = empList) => {
 		let option = this.props.employeesInfo.selected_filter_option;
 		let sortedList=null;
-		if (option === "dateJoined") {
+		if (option === "dateJoined") { // to deal with date sorting
 			 sortedList = emp_list.sort(function (a, b) {
 				a = (a[option].split('T'))[0].split('-');
 				b = (b[option].split('T'))[0].split('-');
@@ -94,7 +100,7 @@ class EmployeeRosterContainer extends Component {
 				}
 			});
 
-			if(!ascending){
+			if(!ascending){// to revser the sorted list if it is descending
 				sortedList= sortedList.reverse()
 			}
 		}
@@ -102,7 +108,7 @@ class EmployeeRosterContainer extends Component {
 			 sortedList = emp_list.sort(function (a, b) {
 				a = a[option];
 				b = b[option];
-				if (typeof a[option] === "string") {
+				if (typeof a[option] === "string") {// to sort string
 					a = a[option].toLowerCase();
 					b = b[option].toLowerCase();
 				}
@@ -123,20 +129,18 @@ class EmployeeRosterContainer extends Component {
 			case "age":
 				return emp_list.filter(item => {
 					let valueToCompare = item[selected_filter_option];
-					return (valueToCompare.toString() === searchValue)
+					return (valueToCompare.toString() === searchValue)// to get the exact match for age
 				});
-				break;
-
-			case "dateJoined":
 				break;
 
 			default:
 				return emp_list.filter(item => {
 					let valueToCompare = item[selected_filter_option].toLowerCase();
-					return (valueToCompare.includes(searchValue.toLowerCase()))
+					return (valueToCompare.includes(searchValue.toLowerCase())) // to get "contains" match for other string
 				});
 		}
 	}
+	// to handle state lifting
 	onStateChange = (targetState, value) => {
 		let FilterList;
 		if (targetState === "searchValue") {
@@ -144,10 +148,10 @@ class EmployeeRosterContainer extends Component {
 			this.setState({
 				filterOn: false
 			});
-			if (this.state.sortBy !== null) {
+			if (this.state.sortBy !== null) {// to apply sort for filtered list if any
 				FilterList = this.onSortList(this.state.sortBy === "ascending" ? true : false, FilterList);
 			}
-			this.props.dispatch(updateFilteredEmpList(FilterList));
+			this.props.dispatch(updateFilteredEmpList(FilterList));// to set filtered list
 		}
 		else if (targetState === "selected_filter_option") {
 			FilterList = this.onFilterList(this.state.searchValue, value);
@@ -159,11 +163,14 @@ class EmployeeRosterContainer extends Component {
 		}
 		else if (targetState === "sortBy") {
 
-			if (this.props.employeesInfo.filtered_emp_list && this.props.employeesInfo.filtered_emp_list.length > 0) {
+			if (this.props.employeesInfo.filtered_emp_list && this.props.employeesInfo.filtered_emp_list.length > 0){
+				// to apply sort to filtered list
 				FilterList = this.onSortList(value === "ascending" ? true : false, this.props.employeesInfo.filtered_emp_list);
 			}
 			else
-				FilterList = this.onSortList(value === "ascending" ? true : false);
+				{
+					FilterList = this.onSortList(value === "ascending" ? true : false);// to filter the normal emp list
+				}
 
 			this.setState({
 				filterOn: false
@@ -172,8 +179,6 @@ class EmployeeRosterContainer extends Component {
 		}
 		this.setState({
 			[targetState]: value
-		},()=>{
-			console.log("target",targetState,"value",this.state[targetState])
 		});
 
 	}

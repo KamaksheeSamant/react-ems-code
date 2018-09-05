@@ -14,12 +14,14 @@ const employeeCard = (props) => {
 
     return (
         <React.Fragment>
+            {/* card is for desktop view */}
             <div className="card">
                 <img src={avatar} alt="Employee Avatar" />
                 <h1>{firstName + " " + lastName}</h1>
                 <p className="title">{jobTitle}</p>
                 <p><button onClick={props.onSetCurrentEmp.bind(this,props.cardDetails)}>Learn More</button></p>
             </div>
+            {/* list id for mobile view */}
             <div className="list">
                 <li onClick={props.onSetCurrentEmp.bind(this,props.cardDetails)}>
                     <img src={avatar} alt="Employee Avatar" />

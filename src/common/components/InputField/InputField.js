@@ -6,14 +6,15 @@ const inputField = (props) => {
     const { placeholder,styleO, type, width ,onChangeHandler, targetState, value = "", isRequired=false } = props;
     return (
         <React.Fragment>
-            <input style={styleO}
-            className={(isRequired && value === "") ? "inputField required" : "inputField"}
+            {/* styleO is to apply customised style */}
+             <input style={styleO} 
+            className={(isRequired && value === "") ? "inputField required" : "inputField"} 
                 type={type}
-                
                 placeholder={placeholder}
                 onChange={(e) => onChangeHandler(targetState, e.target.value)}
                 value={value} />
-            {(isRequired && value === "") ? <p>"This is a required field"</p> : null}
+                {/* to tell that the fiel is required */}
+            {(isRequired && value === "") ? <p className="req-msg">This is a required field</p> : null}
         </React.Fragment>
     );
 }

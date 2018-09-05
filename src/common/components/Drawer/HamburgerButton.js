@@ -14,9 +14,5 @@ hamburgerButton.propTypes = {
     drawerToggler: PropTypes.func.isRequired
 };
 
-hamburgerButton.defaultProps={
-    drawerToggler:()=>{
-        console.log("drawerToggler function is not passed");
-    }
-}
+
 export default hamburgerButton;

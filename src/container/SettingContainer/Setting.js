@@ -37,7 +37,6 @@ class SettingContainer extends Component {
 	}
 	
 	render() {
-		console.log("state of redux", this.props.companyInfo.companyName);
 		return <SettingPage
 			companyName={this.state.companyName}
 			companyMotto={this.state.companyMotto}

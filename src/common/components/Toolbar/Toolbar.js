@@ -42,11 +42,7 @@ toolbar.propTypes = {
     drawerToggler: PropTypes.func.isRequired
 };
 
-toolbar.defaultProps = {
-    drawerToggler: () => {
-        console.log("drawerToggler function is not passed");
-    }
-}
+
 const mapStateToProps = state => ({
     companyInfo: state.companyInfo.data,
 });

@@ -13,9 +13,5 @@ shadowOffset.propTypes = {
     closeDrawer: PropTypes.func.isRequired
 };
 
-shadowOffset.defaultProps={
-    closeDrawer:()=>{
-        console.log("Close Drawer function is not passed");
-    }
-}
+
 export default shadowOffset;

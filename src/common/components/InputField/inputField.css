@@ -14,4 +14,11 @@
 .required {
   border: 1px solid red;
 }
+
+.req-msg {
+  font-family: sans-serif;
+  font-size: 0.7rem;
+  font-weight: initial;
+  color: red;
+}
 /*# sourceMappingURL=inputField.css.map */

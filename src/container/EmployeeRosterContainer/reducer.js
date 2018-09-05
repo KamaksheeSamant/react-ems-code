@@ -9,7 +9,6 @@ const initialState = {
 }
 
 export default function (state = initialState, action) {
-    console.log("setiing filtered list", action.payload);
     switch (action.type) {
         
         case ActionTypes.SET_FILTER_OPTION: {

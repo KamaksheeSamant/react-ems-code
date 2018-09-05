@@ -39,7 +39,7 @@
   margin-right: auto;
 }
 
-.employeeRoster-container .filter-div {
+.employeeRoster-container #filter-div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -51,7 +51,7 @@
       justify-content: space-around;
 }
 
-.employeeRoster-container .filter-div .dropDown {
+.employeeRoster-container #filter-div .dropDown {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;

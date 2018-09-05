@@ -14,8 +14,9 @@ const dropDown = (props) => {
         }}>
 
             {(dataArray.map(item => {
-                if(item.disabled && item.disabled === "true")
+                if(item.disabled)
                 {
+                    // to give default value
                     return <option key={item.value} value={item.value}
                     disabled hidden selected>
                     {item.label}</option>
