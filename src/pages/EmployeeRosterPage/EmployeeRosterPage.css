@@ -15,6 +15,15 @@
   min-width: 150px;
 }
 
+@media only screen and (min-width: 510px) {
+  .employeeRoster-container .search-div .filter-button, .employeeRoster-container .search-div a {
+    display: initial !important;
+  }
+  .employeeRoster-container .badge-div .apply-filter {
+    display: none !important;
+  }
+}
+
 .employeeRoster-container {
   margin-top: 70px;
   display: -webkit-box;
@@ -59,6 +68,16 @@
   padding: 0 20px 10px 20px;
 }
 
+.employeeRoster-container .badge-div .apply-filter {
+  display: inline;
+}
+
+.employeeRoster-container .filter-container a {
+  position: absolute;
+  right: 0;
+  margin-right: 20px;
+}
+
 .employeeRoster-container .search-div {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -72,10 +91,12 @@
 }
 
 .employeeRoster-container .search-div .filter-button {
+  display: none;
   width: auto;
 }
 
 .employeeRoster-container .search-div a {
+  display: none;
   line-height: 4;
   font-family: sans-serif;
   font-size: 0.9rem;

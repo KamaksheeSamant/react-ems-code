@@ -22,7 +22,7 @@ $colo-lightGray: #f3eeee;
 }
 
 @mixin textFormat($size:16px,$color:$color_darkGray,$weight:initial,$family:sans-serif){
-    font-family: sans-serif;
+    font-family: $family;
     font-size: $size;
     font-weight: $weight;
     color: $color

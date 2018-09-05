@@ -8,6 +8,7 @@
   left: 0;
   width: 70%;
   max-width: 400px;
+  min-width: 300px;
   z-index: 200;
   -webkit-transform: translateX(-100%);
           transform: translateX(-100%);
@@ -17,14 +18,29 @@
   transition: transform 0.2s ease-out, -webkit-transform 0.2s ease-out;
 }
 
-.drawer.open {
-  -webkit-transform: translateX(0);
-          transform: translateX(0);
+.drawer .drawer-container {
+  width: 100%;
+  min-width: 150px;
 }
 
-.drawer ul {
-  height: 100%;
-  list-style: none;
+.drawer .drawer-container .drawer-header {
+  background-color: #f3eaea;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-bottom: 1px solid black;
+}
+
+.drawer .drawer-container .drawer-header img {
+  width: 70px;
+  height: 70%;
+  padding: 20px 10px;
+}
+
+.drawer .drawer-container .drawer-header .user-info {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -32,14 +48,48 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
 }
 
-.drawer a {
-  color: rebeccapurple;
+.drawer .drawer-container .drawer-header .user-info h2 {
+  font-family: sans-serif;
+  font-size: 1.5rem;
+  font-weight: initial;
+  color: #676262;
+  padding: 0;
+  margin: 0;
+}
+
+.drawer .drawer-container .drawer-header .user-info h3 {
+  font-family: sans-serif;
+  font-size: 0.9rem;
+  font-weight: initial;
+  color: #676262;
+  padding: 0;
+  margin: 0;
+}
+
+.drawer.open {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+
+.drawer ul {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.drawer ul li {
+  list-style: none;
+  padding: 11px 35px;
+  border-bottom: 1px solid black;
+}
+
+.drawer ul li a {
   text-decoration: none;
-  font-size: 1.2rem;
+  font-family: sans-serif;
+  font-size: 0.9rem;
+  font-weight: initial;
+  color: #676262;
 }
 /*# sourceMappingURL=Drawer.css.map */

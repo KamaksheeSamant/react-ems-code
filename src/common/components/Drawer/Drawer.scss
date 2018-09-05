@@ -1,3 +1,7 @@
+@import '../../styles/commonStyle.scss';
+
+
+
 .drawer {
     height: 100%;
     background: white;
@@ -7,22 +11,57 @@
     left: 0;
     width: 70%;
     max-width: 400px;
+    min-width: 300px;
     z-index: 200;
     transform: translateX(-100%);
     transition: transform 0.2s ease-out;
+    .drawer-container{
+      width: 100%;
+      min-width: 150px;
+      .drawer-header{
+        background-color: #f3eaea;
+        display: flex;     
+        border-bottom: 1px solid black;
+        img{
+          width:70px;
+          height: 70%;
+          padding: 20px 10px;
+        }
+        .user-info
+        {
+          justify-content: center;
+          display: flex;
+          flex-direction: column;
+          h2{
+            @include textFormat(1.5rem);
+            padding: 0;
+            margin: 0;
+          }
+          h3{
+            @include textFormat(0.9rem);
+            padding: 0;
+            margin: 0;
+          }
+      }
+      }
+    }
     &.open {
       transform: translateX(0);
     }
-    ul {
-      height: 100%;
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+    ul{
+      padding: 0;
+      margin:0;
+      text-align: center;
+      li{
+          list-style: none;
+              padding: 11px 35px;    
+              //background: rgba(255,255,255,0.1) url(../../../assets/icon/user.png) no-repeat left;
+              border-bottom: 1px solid black;
+              a {
+                text-decoration: none;
+                @include textFormat(0.9rem);
+              }
+      }
     }
-    a {
-      color: rebeccapurple;
-      text-decoration: none;
-      font-size: 1.2rem;
-    }
+  
   }

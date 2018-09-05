@@ -1,7 +1,27 @@
 @import '../../styles/commonStyle.scss';
 
+
+@media only screen and (min-width: 510px) {
+  .badge {
+    h3{
+      .label{
+        display: inline !important; 
+      }
+    }
+  }
+}
+
 .badge {
-  background-color: $color-brand;
+  &.selected{
+    background-color: $color-brand;
+    h3 {
+      @include textFormat(0.9rem,white);
+    }
+
+  }
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  background-color: white;
   border-radius: 0.3rem;
   padding: 5px;
   display: flex;
@@ -10,10 +30,12 @@
   float: left;
   margin: 5px;
   h3 {
-    color: white;
-    @include textFormat(0.9rem,white);
-    padding: 0;
-    margin: 0;
+    
+    @include textFormat(0.9rem);
+    @include noPadMargin();
+    .label{
+      display: none
+      }
     &:last-child {
       margin-left: 10px;
     }

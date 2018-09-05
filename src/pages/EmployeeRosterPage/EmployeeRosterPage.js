@@ -5,10 +5,12 @@ import InputField from '../../common/components/InputField/InputField';
 import DropDown from '../../common/components/DropDown/DropDown';
 import PropTypes from 'prop-types';
 import Badge from '../../common/components/Badge/Badge';
+import Modal from '../../common/components/Modal/Modal';
+import EmployeeInfoModal from '../../common/components/EmployeeInfoModal/EmployeeInfoModal';
 
 
 const SearchField = (props) => {
-    const { employeesInfo: { filterOptions, emp_list }, onSortList, fileteredList, onChangeHandler, selected_filter_option, searchValue } = props;
+    const { employeesInfo: { filterOptions, emp_list }, toDate, fromDate, onSortList, fileteredList, onChangeHandler, selected_filter_option, searchValue } = props;
     let resultComp = null;
     switch (selected_filter_option) {
         case "dateJoined":
@@ -18,7 +20,7 @@ const SearchField = (props) => {
                     targetState="toDate"
                     placeholder="To Date"
                     type="date"
-                    value={searchValue}
+                    value={toDate}
                     styleO={{ width: '25%' }} />
 
                 <InputField
@@ -26,7 +28,7 @@ const SearchField = (props) => {
                     targetState="fromDate"
                     placeholder="From Date"
                     type="date"
-                    value={searchValue}
+                    value={fromDate}
                     styleO={{ width: '25%' }} />
             </React.Fragment>
             break;
@@ -47,57 +49,87 @@ const SearchField = (props) => {
 }
 
 const EmployeeRosterPage = (props) => {
-    
-    const { employeesInfo: { filterOptions, emp_list, sortOptions }, onClearFilter,sortBy, 
-    onFilterToggle, filterOn, fileteredList, onChangeHandler, selected_filter_option, 
-    searchValue } = props;
-    console.log("MMM",emp_list,"ii",fileteredList,"oo",searchValue);
+
+    const { employeesInfo: { filterOptions, emp_list, sortOptions }, onClearFilter, sortBy,
+        onFilterToggle, filterOn, fileteredList, onChangeHandler, selected_filter_option,
+        searchValue, onCloseEMPModal, onShowEMPModal, showEMPModal } = props;
+    //console.log("MMM", emp_list, "ii", fileteredList, "oo", searchValue);
     return (
         <React.Fragment>
-        <div className="employeeRoster-container" >
-            {(filterOn) ?
-                <div className="filter-div">
-                    <div className="dropDown">
-                        <DropDown
-                            placeholder={"SEARCH BY"}
-                            onChangeHandler={onChangeHandler}
-                            value={selected_filter_option}
-                            dataArray={filterOptions}
-                            targetState={"selected_filter_option"} />
-                    </div>
-                    <div className="dropDown">
-                        <DropDown
-                            placeholder={"SORT BY"}
-                            onChangeHandler={onChangeHandler}
-                            value={sortBy}
-                            dataArray={sortOptions}
-                            targetState={"sortBy"} />
-                    </div>
-                </div> : null}
+            <div className="employeeRoster-container" >
+                {(filterOn) ?
+                    <div id="filter-div">
+                        <div className="dropDown">
+                            <DropDown
+                                placeholder={"SEARCH BY"}
+                                onChangeHandler={onChangeHandler}
+                                value={selected_filter_option}
+                                dataArray={filterOptions}
+                                targetState={"selected_filter_option"} />
+                        </div>
+                        <div className="dropDown">
+                            <DropDown
+                                placeholder={"SORT BY"}
+                                onChangeHandler={onChangeHandler}
+                                value={sortBy}
+                                dataArray={sortOptions}
+                                targetState={"sortBy"} />
+                        </div>
+                    </div> : null}
 
-            <div className="search-div">
-                <SearchField {...props} />
-                <a onClick={onClearFilter}>Clear</a>
-                <button onClick={onFilterToggle} className="filter-button">Apply Filter</button>
-            </div>
+                <div className="search-div">
+                    <SearchField {...props} />
+                    <a onClick={onClearFilter}>Clear</a>
+                    <button className="filter-button" onClick={onFilterToggle} className="filter-button">Apply Filter</button>
+                </div>
 
-            <div className="badge-div">
-                <Badge text={"SEARCH BY: " + selected_filter_option} />
-                {(sortBy !== null) && <Badge onClick={onClearFilter} text={"SORT BY: " + sortBy} />}
+                <div className="badge-div">
+                    <div className="apply-filter">
+                        <Badge onClick={props.onShowFilterModal} isCross={false} text={"Apply Filter"} />
+                    </div>
+                    <Badge isCross={false} label="SEARCH BY" text={selected_filter_option} />
+                    {(sortBy !== null) && <Badge onClick={onClearFilter.bind(this, false)} label="SORT BY" text={sortBy} />}
+                </div>
+                {(props.showEMPModal) &&
+                    <Modal onClose={props.onCloseEMPModal}>
+                        <EmployeeInfoModal empInfo={props.currentEmp} />
+                    </Modal>}
+
+                {(props.showFilterModal) &&
+                    <Modal onClose={props.onCloseFilterModal}>
+                        <div className="filter-container" style={ {display: 'flex',flexDirection: 'column'}}>
+                            <a onClick={onClearFilter} style={{fontFamily: 'sans-serif',fontSize:'0.9rem',color:'#676262',position: 'absolute',right: '0',marginRight: '20px'}}>Clear</a>
+                            <div>
+                                <h2 style={{fontFamily: 'sans-serif',fontSize:'0.9rem',color:'#676262'}}>SEARCH BY: </h2>
+                                {filterOptions.map(item => 
+                                     <Badge onClick={onChangeHandler.bind(this,"selected_filter_option",item.value)} selected={(item.value === selected_filter_option) ? true : false} isCross={false} text={item.label} />
+                                )}
+                            </div>
+                            <div>
+                                <h2 style={{fontFamily: 'sans-serif',fontSize:'0.9rem',color:'#676262'}}>SORT BY: </h2>
+                                {sortOptions.map(item => {
+                                    if(item.value !== "sortby")
+                                    return <Badge onClick={onChangeHandler.bind(this,"sortBy",item.value)} selected={(item.value === sortBy) ? true : false} isCross={false} text={item.label} />
+                                })}
+                            </div>
+                        </div>
+                    </Modal>}
+                    
             </div>
-        </div>
-        <div className="employee-container">
-        {(fileteredList && fileteredList.length !== 0) ?
-            fileteredList.map(item =>
-                <EmployeeCard key={item.id} cardDetails={item} />
-            ) :
-            (searchValue === "") ?
-                emp_list.map(item =>
-                    <EmployeeCard key={item.id} cardDetails={item} />
-                )
-                : null
-        }
-        </div>
+            <div className="employee-container">
+                {(fileteredList && fileteredList.length !== 0) ?
+                    fileteredList.map(item =>
+                        <EmployeeCard key={item.id} cardDetails={item}
+                            onSetCurrentEmp={props.onSetCurrentEmp} />
+                    ) :
+                    (searchValue === "") ?
+                        emp_list.map(item =>
+                            <EmployeeCard key={item.id} cardDetails={item}
+                                onSetCurrentEmp={props.onSetCurrentEmp} />
+                        )
+                        : null
+                }
+            </div>
         </React.Fragment>
     );
 }

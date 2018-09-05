@@ -1,0 +1,60 @@
+@media only screen and (min-width: 510px) {
+  .emp-detail {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+  }
+  .emp-detail .right-info {
+    border-left: 1px solid;
+    padding: 10px 10px 10px 40px !important;
+  }
+  .emp-detail .left-info {
+    padding: 20px 20px !important;
+  }
+}
+
+.emp-detail {
+  width: 500px;
+  padding: 10px;
+  display: initial;
+}
+
+.emp-detail .left-info {
+  padding: 0;
+  text-align: center;
+}
+
+.emp-detail .left-info img {
+  width: 150px;
+  border: 1px solid;
+}
+
+.emp-detail .left-info h3 {
+  font-family: sans-serif;
+  font-size: 0.9rem;
+  font-weight: initial;
+  color: #676262;
+}
+
+.emp-detail .right-info {
+  padding: 0;
+}
+
+.emp-detail .right-info hr {
+  width: 90%;
+}
+
+.emp-detail .right-info h1 {
+  font-family: sans-serif;
+  font-size: 1.3rem;
+  font-weight: initial;
+  color: black;
+}
+
+.emp-detail .right-info h2 {
+  font-family: sans-serif;
+  font-size: 1rem;
+  font-weight: initial;
+  color: #676262;
+}
+/*# sourceMappingURL=EmployeeInfoModal.css.map */

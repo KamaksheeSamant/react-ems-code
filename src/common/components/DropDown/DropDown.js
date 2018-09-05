@@ -14,7 +14,17 @@ const dropDown = (props) => {
         }}>
 
             {(dataArray.map(item => {
-                return <option key={item.value} value={item.value} disabled={(item.disabled && item.disabled === "true")?true:false}>{item.label}</option>
+                if(item.disabled && item.disabled === "true")
+                {
+                    return <option key={item.value} value={item.value}
+                    disabled hidden selected>
+                    {item.label}</option>
+                }
+                else
+                {
+                    return <option key={item.value} value={item.value}>{item.label}</option>
+                }
+                
             }))}
         </select>
         </div>

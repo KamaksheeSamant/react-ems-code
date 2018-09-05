@@ -1,0 +1,46 @@
+@import '../../styles/commonStyle.scss';
+
+
+@media only screen and (min-width: 510px) {
+  .emp-detail{
+    display: flex !important;
+    .right-info{
+      border-left: 1px solid;
+      padding: 10px 10px 10px 40px !important;
+    }
+    .left-info{
+      padding: 20px 20px!important ;
+    }
+  }
+}
+
+.emp-detail{
+  width: 500px; 
+  padding: 10px;
+  display: initial;
+  .left-info{
+    padding: 0;
+    text-align: center;
+    img{
+      width: 150px;
+      border: 1px solid;
+    }
+    h3{
+      @include textFormat(0.9rem);
+    }
+  }
+  .right-info{
+   
+    padding: 0;
+    hr{
+      width: 90%;
+    }
+    h1{
+      @include textFormat(1.3rem,black);
+    }
+    h2{
+      @include textFormat(1rem);
+    }
+  }
+} 
+
