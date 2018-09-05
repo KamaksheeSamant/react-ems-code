@@ -3,7 +3,7 @@ import './inputField.css'
 import PropTypes from 'prop-types';
 
 const inputField = (props) => {
-    const { placeholder,styleO, type, width ,onChangeHandler, targetState, value = "", isRequired=false } = props;
+    const { placeholder,styleO, type ,onChangeHandler, targetState, value = "", isRequired=false } = props;
     return (
         <React.Fragment>
             {/* styleO is to apply customised style */}

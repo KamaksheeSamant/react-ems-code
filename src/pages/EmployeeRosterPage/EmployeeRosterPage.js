@@ -22,7 +22,7 @@ const getYears = () => {
 }
 // to switch the search field according to filter option
 const SearchField = (props) => {
-    const { employeesInfo: { filterOptions, emp_list }, toDate, fromDate, onSortList, fileteredList, onChangeHandler, selected_filter_option, searchValue } = props;
+    const { onChangeHandler, selected_filter_option, searchValue } = props;
     let resultComp = null;
     switch (selected_filter_option) {
         case "dateJoined":
@@ -70,7 +70,7 @@ const EmployeeRosterPage = (props) => {
 
     const { employeesInfo: { filterOptions, emp_list, sortOptions }, onClearFilter, sortBy,
         onFilterToggle, filterOn, fileteredList, onChangeHandler, selected_filter_option,
-        searchValue, onCloseEMPModal, onShowEMPModal, showEMPModal } = props;
+        searchValue } = props;
     return (
         <React.Fragment>
             <div className="employeeRoster-container" >
@@ -97,7 +97,7 @@ const EmployeeRosterPage = (props) => {
                 <div className="search-div">
                     <SearchField {...props} />
                     <a onClick={onClearFilter}>Clear</a>
-                    <button className="filter-button" onClick={onFilterToggle} className="filter-button">Apply Filter</button>
+                    <button className="filter-button" onClick={onFilterToggle}>Apply Filter</button>
                 </div>
 
                 <div className="badge-div">
@@ -127,6 +127,8 @@ const EmployeeRosterPage = (props) => {
                                 {sortOptions.map(item => {
                                     if (item.value !== "sortby")
                                         return <Badge onClick={onChangeHandler.bind(this, "sortBy", item.value)} selected={(item.value === sortBy) ? true : false} isCross={false} text={item.label} />
+                                    else
+                                        return null;
                                 })}
                             </div>
                         </div>

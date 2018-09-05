@@ -42,7 +42,7 @@ class App extends Component {
   render() {
     return (
       <div className="App" style={{ height: '100%' }}>
-        <React.StrictMode>
+        
 
           <Toolbar drawerToggler={this.drawerToggler} />
           <Drawer isDrawerOpen={this.state.drawerOpen} />
@@ -64,8 +64,6 @@ class App extends Component {
                 <Route path="/ABOUT_US" component={Aboutus} />
               </div>
             </BrowserRouter>}
-
-        </React.StrictMode>
       </div>
     );
   }

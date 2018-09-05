@@ -1,16 +1,13 @@
 import React from 'react';
 import './EmployeeCard.css';
 import PropTypes from 'prop-types';
-import Modal from "../Modal/Modal";
 
 const employeeCard = (props) => {
     const { cardDetails: {
         avatar,
         firstName = "First Name",
         lastName = "Last Name",
-        jobTitle = "Job Title",
-        age, bio = "Employee Bio data",
-        dateJoined } } = props;
+        jobTitle = "Job Title" } } = props;
 
     return (
         <React.Fragment>
