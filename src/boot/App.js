@@ -4,7 +4,7 @@ import React, { Component } from "react";
 import Toolbar from "../common/components/Toolbar/Toolbar";
 import Drawer from "../common/components/Drawer/Drawer";
 import ShadowOffset from "../common/components/Drawer/ShadowOffset";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Redirect } from "react-router-dom";
 import Aboutus from "../container/AboutusContainer/Aboutus";
 import Setting from "../container/SettingContainer/Setting";
 import EmployeeRoster from "../container/EmployeeRosterContainer/EmployeeRoster";
@@ -56,6 +56,9 @@ class App extends Component {
         ) : (
           <BrowserRouter>
             <div>
+              <Route exact path="/">
+                <Redirect to="/home" />
+              </Route>
               <Route exact path="/" component={EmployeeRoster} />
               <Route path="/SETTINGS" component={Setting} />
               <Route path="/HOME" component={EmployeeRoster} />
