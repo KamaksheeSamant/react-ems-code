@@ -14,7 +14,7 @@ export default function configureStore() {
   // const enhancer = compose(
   //   applyMiddleware(thunk),
   //   devTools({
-  //     name: "Westpac EMS",
+  //     name: "ABC Bank EMS",
   //     realtime: true
   //   })
   // );

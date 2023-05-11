@@ -1,7 +1,7 @@
 import React from "react";
 import "./Toolbar.css";
 import HamburgerButton from "../Drawer/HamburgerButton";
-import logo from "../../../assets/images/westpacLogo.png";
+import logo from "../../../assets/images/ABC BankLogo.png";
 import PropTypes from "prop-types";
 import { navOptions } from "../../const/commonConst";
 import { connect } from "react-redux";
