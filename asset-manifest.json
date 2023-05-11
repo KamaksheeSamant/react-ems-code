@@ -1,15 +1,16 @@
 {
   "files": {
     "main.css": "/react-ems-code/static/css/main.f0140431.css",
-    "main.js": "/react-ems-code/static/js/main.651aaba9.js",
+    "main.js": "/react-ems-code/static/js/main.16a96620.js",
+    "static/media/ABC_BankLogo.png": "/react-ems-code/static/media/ABC_BankLogo.3c40bdadde96ada31f91.png",
     "static/media/hamburger.png": "/react-ems-code/static/media/hamburger.52223e7110b45dbe3ecd.png",
     "static/media/right.png": "/react-ems-code/static/media/right.e2ecb0b14e5805e57cd2.png",
     "index.html": "/react-ems-code/index.html",
     "main.f0140431.css.map": "/react-ems-code/static/css/main.f0140431.css.map",
-    "main.651aaba9.js.map": "/react-ems-code/static/js/main.651aaba9.js.map"
+    "main.16a96620.js.map": "/react-ems-code/static/js/main.16a96620.js.map"
   },
   "entrypoints": [
     "static/css/main.f0140431.css",
-    "static/js/main.651aaba9.js"
+    "static/js/main.16a96620.js"
   ]
 }
